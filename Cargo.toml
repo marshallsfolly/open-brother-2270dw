@@ -1,0 +1,41 @@
+[package]
+name = "brother-2270dw"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "A fully featured Rust driver for the Brother HL-2270DW network laser printer"
+license = "MIT"
+repository = "https://example.invalid/open-brother-2270dw"
+keywords = ["printer", "brother", "hl-2270dw", "snmp", "pcl"]
+categories = ["command-line-utilities", "hardware-support"]
+
+[lib]
+name = "brother_2270dw"
+path = "src/lib.rs"
+
+[[bin]]
+name = "brother-2270dw"
+path = "src/main.rs"
+
+[[bin]]
+name = "brother2270-cups-backend"
+path = "src/bin/brother2270-cups-backend.rs"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+fontdue = "0.9"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "tiff"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tiny_http = "0.12"
+toml = "0.8"
+ureq = "2"
+rusb = "0.9"
+
+[dev-dependencies]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = true

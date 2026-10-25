@@ -1,0 +1,5 @@
+/target
+/result
+*.tmp
+*.swp
+.DS_Store
